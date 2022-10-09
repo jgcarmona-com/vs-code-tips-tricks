@@ -6,5 +6,4 @@
     "--cov=.",
     "--cov-report=xml:coverage.xml",
   ],
-  "python.envFile": "${workspaceFolder}/.env"
 }
