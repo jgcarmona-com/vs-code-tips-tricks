@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Docker: SIMPLE API",
+      "type": "docker",
+      "request": "launch",
+      "preLaunchTask": "docker-run-simple-api: debug",
+      "python": {
+        "args": [
+          "-m",
+          "simas_api"
+        ],
+        "pathMappings": [
+          {
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/app"
+          }
+        ],
+        "projectType": "fastapi"
+      },
+    },
+    {
+      "name": "pytest SIMPLE API",
+      "type": "python",
+      "request": "launch",
+      "purpose": [
+        "debug-test"
+      ],
+      "env": {
+        "PYTEST_ADDOPTS": "--no-cov"
+      },
+      "module": "pytest",
+      "cwd": "${workspaceRoot}/simple-api/src",
+      "envFile": "${workspaceFolder}/simple-api/.env",
+      "console": "integratedTerminal"
+    },
+  ]
+}

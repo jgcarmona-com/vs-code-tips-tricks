@@ -1,0 +1,31 @@
+# Emacs
+*~
+\#*
+.\#*
+
+*.testlog
+
+
+# Local Environment
+# .env
+
+# Temporary files
+.tmp
+tmp-scripts
+
+
+# Temporary test and coverage files
+ .coverage
+ coverage.xml
+ test-output.xml
+
+# python
+__pycache__
+.venv
+.pytest_cache
+
+# Ignore files
+.dockerignore
+.pylintrc
+.netrc
+pip.conf

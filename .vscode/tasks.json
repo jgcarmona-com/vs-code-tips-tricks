@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "docker-build",
+            "label": "docker-build-simple-api",
+            "platform": "python",
+            "dockerBuild": {
+                "tag": "simple-api:latest",
+                "dockerfile": "${workspaceFolder}/simple-api/Dockerfile",
+                "context": "${workspaceFolder}/simple-api",
+                "pull": false
+            }
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run-simple-api: debug",
+            "dependsOn": [
+                "docker-build-simple-api"
+            ],
+            "dockerRun": {
+                "envFiles": [
+                    "${workspaceFolder}/simple-api/.env"
+                ]
+            },
+            "python": {
+                "args": [],
+                "file": "app/main.py"
+            }
+        }
+    ]
+}
