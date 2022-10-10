@@ -4,7 +4,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse, RedirectResponse
 
-from .services import version_service
+from simple_api.services import version_service
 
 app = FastAPI()
 
@@ -29,6 +29,6 @@ def health():
     )
 
 
-if __name__ == "__main__":
+def run():
     port = int(os.getenv("PORT", "8080"))
     uvicorn.run(app, host="0.0.0.0", port=port)

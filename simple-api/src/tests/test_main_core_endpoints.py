@@ -1,10 +1,10 @@
 """TEST MAIN CORE ENDPOINTS"""
 from fastapi.testclient import TestClient
-from app.main import app
+from simple_api import main
 import pytest
 from dotenv import load_dotenv
 
-client = TestClient(app)
+client = TestClient(main.app)
 
 
 @pytest.fixture(scope='session', autouse=True)
