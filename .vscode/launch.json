@@ -30,7 +30,7 @@
       "env": {
         "PYTEST_ADDOPTS": "--no-cov"
       },
-      // "module": "pytest",
+      "module": "pytest",
       "cwd": "${workspaceRoot}/simple-api/src",
       "envFile": "${workspaceFolder}/simple-api/.env",
       "console": "integratedTerminal"
