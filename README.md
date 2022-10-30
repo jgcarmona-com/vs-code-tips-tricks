@@ -15,7 +15,12 @@
 
 Do you know how to debug your code while it's running inside a container? Do you know how to inject environment variables to Docker? Do you know how to measure the coverage of your unit tests? In this article I want to present you with a series of tricks to improve your skills and abilities developing applications and microservices with Python, Docker and Visual Studio Code. Are you interested? Read on.
 
-I Prepared this repo in order to demonstrate those features and I wrote an article, in Spanish... I havne't published yet but I'll paste the URL here as soon as I publish it to have all this content linked togehter. I will appreciate any comment or suggesrtion for further articles
+I Prepared this repo in order to demonstrate those features and I wrote an article, in Spanish...
+
+[ORIGINAL ARTICLE IS HERE](https://www.jgcarmona.com/2022/10/30/python-en-docker-con-visual-studio-trucos-y-consejos/)
+
+
+I will appreciate any comment or suggesrtion for further articles.
 
 
 # 3. Understanding Visual Studio Code settings
