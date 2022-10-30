@@ -7,14 +7,11 @@
       "request": "launch",
       "preLaunchTask": "docker-run-simple-api: debug",
       "python": {
-        "args": [
-          "-m ",
-          "simple_api"
-        ],
+        "module": "simple_api",
         "pathMappings": [
           {
-            "localRoot": "${workspaceFolder}",
-            "remoteRoot": "/app"
+            "localRoot": "${workspaceRoot}/simple-api/src",
+            "remoteRoot": "/app/src"
           }
         ],
         "projectType": "fastapi"

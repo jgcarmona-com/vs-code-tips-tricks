@@ -6,6 +6,7 @@ from fastapi.responses import JSONResponse, RedirectResponse
 
 from simple_api.services import version_service
 
+
 app = FastAPI()
 
 
@@ -19,7 +20,6 @@ async def root():
     app_version = version_service.get_application_version()
     return {"message": app_version}
 
-
 @app.get("/health", include_in_schema=False, status_code=200)
 def health():
     """Health Endpoint"""
@@ -27,7 +27,6 @@ def health():
         status_code=200,
         content={"message": "OK", "description": "Service is up and running"},
     )
-
 
 def run():
     port = int(os.getenv("PORT", "8080"))
