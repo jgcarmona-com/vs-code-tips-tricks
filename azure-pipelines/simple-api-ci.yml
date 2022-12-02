@@ -29,21 +29,12 @@ stages:
   - stage: build_and_push
     displayName: build docker image
     jobs:
-      - job: build_image
+      - job: buildand_push_image
         displayName: build docker image
         steps:          
-          - task: Docker@2
-            displayName: Build an image
-            inputs:
-              repository: $(imageName)
-              command: build
-              Dockerfile: app/Dockerfile
-      - job: push_image
-        displayName: push docker image
-        dependsOn: build_image
-        steps:
           - task: Docker@2
             inputs:
               containerRegistry: 'jgcarmonadev'
               repository: 'simple-api'
-              command: 'push'
+              command: 'buildAndPush'
+              Dockerfile: 'app/Dockerfile'
