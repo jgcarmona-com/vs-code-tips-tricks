@@ -26,10 +26,10 @@ stages:
             parameters:
               app_name: simple-api
 
-  - stage: build_image
+  - stage: build_and_push
     displayName: build docker image
     jobs:
-      - job:
+      - job: build_image
         displayName: build docker image
         steps:          
           - task: Docker@2
@@ -38,8 +38,8 @@ stages:
               repository: $(imageName)
               command: build
               Dockerfile: app/Dockerfile
-      - job: 
-        displayName: push
+      - job: push_image
+        displayName: push docker image
         dependsOn: build_image
         steps:
           - task: Docker@2
