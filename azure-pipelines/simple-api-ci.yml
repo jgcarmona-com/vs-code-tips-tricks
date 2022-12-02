@@ -1,5 +1,6 @@
 # This pipeline builds and deploy changes on dev or any feature branch and deploys it to DEV Cluster
 
+
 trigger:
   branches:
     include:
@@ -37,3 +38,11 @@ stages:
               repository: $(imageName)
               command: build
               Dockerfile: app/Dockerfile
+      - job: 
+        displayName: push
+        steps:
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'jgcarmonadev'
+              repository: 'simple-api'
+              command: 'push'
