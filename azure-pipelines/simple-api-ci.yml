@@ -1,0 +1,36 @@
+# This pipeline builds and deploy changes on dev or any feature branch and deploys it to DEV Cluster
+
+trigger: none
+
+name: $(Date:yyyy-MM-dd)$(Rev:.r)
+
+variables:
+  - group: dev-settings
+
+pool:
+  vmImage: ubuntu-20.04
+
+stages:
+
+  - stage: run_tests
+    displayName: run tests
+    jobs:
+      - job:
+        displayName: "run pytest"
+        steps:
+          - template: pipeline_templates/run_pytests.yml
+            parameters:
+              app_name: my-python-app
+              
+  - stage: build_image
+    displayName: build docker image
+    jobs:
+      - job:
+        displayName: build docker image
+        steps:          
+          - task: Docker@2
+            displayName: Build an image
+            inputs:
+              repository: $(imageName)
+              command: build
+              Dockerfile: app/Dockerfile
