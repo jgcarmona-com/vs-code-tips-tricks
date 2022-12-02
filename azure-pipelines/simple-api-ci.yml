@@ -1,6 +1,9 @@
 # This pipeline builds and deploy changes on dev or any feature branch and deploys it to DEV Cluster
 
-trigger: none
+trigger:
+  branches:
+    include:
+    - '*'  # must quote since "*" is a YAML reserved character; we want a string
 
 name: $(Date:yyyy-MM-dd)$(Rev:.r)
 
@@ -20,8 +23,8 @@ stages:
         steps:
           - template: pipeline_templates/run_pytests.yml
             parameters:
-              app_name: my-python-app
-              
+              app_name: simple-api
+
   - stage: build_image
     displayName: build docker image
     jobs:
