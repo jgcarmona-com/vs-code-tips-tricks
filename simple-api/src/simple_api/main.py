@@ -22,7 +22,7 @@ async def root():
 
 @app.get("/health", include_in_schema=False, status_code=200)
 def health():
-    """Health Endpoint"""
+    """   Health Endpoint   """
     return JSONResponse(
         status_code=200,
         content={"message": "OK", "description": "Service is up and running"},
