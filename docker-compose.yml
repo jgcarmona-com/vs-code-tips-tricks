@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  simple-api:
+    build:
+      context: ./simple-api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+    volumes:
+      - ./simple-api/src:/app/src
+      - ./simple-api/.env:/app/.env
+    command: uvicorn simple_api.main:app --host 0.0.0.0 --port 8080 --reload
